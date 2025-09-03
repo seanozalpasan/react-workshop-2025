@@ -13,6 +13,7 @@
  */
 import { Route, Switch } from "wouter";
 import HelloPage from "./pages/HelloPage";
+import FlashcardPage from "./pages/FlashcardPage";
 
 export default function App() {
   return (
@@ -20,6 +21,9 @@ export default function App() {
       <Switch>
         {/* Displays a basic welcome page when the path is / */}
         <Route path="/" component={HelloPage} />
+
+        {/* Navigates to flashcard page when the path is /flashcards */}
+        <Route path="/flashcards" component={FlashcardPage} />
         
         {/* Shows a 404 error if the path doesn't match anything */}
         {
