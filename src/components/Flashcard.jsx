@@ -18,7 +18,7 @@ export default function Flashcard({ question, answer, onDelete }) {
   };
 
   return (
-    <div className="w-80 h-48 cursor-pointer" onClick={flipCard}>
+    <div className="w-80 h-48 cursor-pointer mt-5" onClick={flipCard}>
       <div className={`relative w-full h-full transition-transform duration-700 transform-style-preserve-3d ${showAnswer ? 'rotate-y-180' : ''}`}>
         {/* Front of card */}
         <div className="absolute inset-0 w-full h-full backface-hidden bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl shadow-lg flex items-center justify-center p-6">
