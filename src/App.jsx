@@ -22,7 +22,7 @@ export default function App() {
         {/* Displays a basic welcome page when the path is / */}
         <Route path="/" component={HelloPage} />
 
-        {/* Navigates to flashcard page when the path is /flashcards */}
+        {/* Navigates to flashcard page when the path is /flashcards (e.g. localhost:5173/flashcards) */}
         <Route path="/flashcards" component={FlashcardPage} />
         
         {/* Shows a 404 error if the path doesn't match anything */}

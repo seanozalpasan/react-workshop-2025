@@ -1,9 +1,22 @@
+/**
+ * DeleteButton.jsx
+ * By: Will Soylemez
+ * JumboCode Fall 2025
+ * 
+ * Delete button component for flashcards. Devs shouldn't
+ * need to modify this file to delete cards!
+ */
+
 export default function DeleteButton({ onDelete }) {
+
+  // Function to handle delete button click
   const handleDelete = (e) => {
-    e.stopPropagation();
+    e.stopPropagation(); // This prevents the card from flipping when the delete button is clicked
     onDelete();
   };
 
+  // Optional TODO: add a real icon instead of "X"
+  // You can use libraries like FontAwesome or Heroicons for better icons
   return (
     <button
       onClick={handleDelete}
