@@ -8,12 +8,27 @@
 
 // Just like in React, you can import external functions/packages using the
 // `import` keyword!
-import express from "express";
-import bodyParser from "body-parser";
-import * as fs from 'fs';
+const express = require("express");
+const bodyParser = require("body-parser");
+const fs = require("fs");
 
 // Initializes "routing" with express.js
 const app = express();
+
+// Add CORS middleware to handle cross-origin requests
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+  
+  // Handle preflight OPTIONS requests
+  if (req.method === 'OPTIONS') {
+    return res.sendStatus(200);
+  }
+  
+  next();
+});
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true })); 
 
