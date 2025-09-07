@@ -95,17 +95,6 @@ app.get("/recent-cards-txt", (req, res) => {
 });
 
 /**
- * Make a copy of the previous function that parses the recently saved
- * board and returns the board as a grid (2d array)
- */
-app.get("/recent-board", (req, res) => {
-  return res.json({
-    // Add Board Here!
-    board: [["X"]]
-  })
-})
-
-/**
  * CHALLENGE: TBD
  */
 
