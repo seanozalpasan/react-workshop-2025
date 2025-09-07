@@ -17,6 +17,7 @@ import { useState } from "react";
 import PageTitle from "../components/PageTitle";
 import Flashcard from "../components/Flashcard";
 import AddCardModal from "../components/AddCardModal";
+import { saveFlashcards, fetchFlashcards } from "../utils/api";
 
 export default function FlashcardPage() {
 
@@ -49,11 +50,55 @@ export default function FlashcardPage() {
     setCards(newCards);
   }
 
+  /*
+  * This function is called when the "Save Flashcards" button is clicked.
+  * It sends the current list of flashcards to the backend server to be saved.
+  */
+  function handleSave() {
+    saveFlashcards(cards) // 
+      .then(response => {
+        alert("Flashcards saved successfully!");
+      })
+      .catch(error => {
+        alert("Failed to save flashcards.");
+        console.error("Error saving flashcards:", error);
+      });
+  }
+
+  /*
+  * This function is called when the "Load Flashcards" button is clicked.
+  * It fetches the list of flashcards from the backend server.
+  * TODO: Finish this function! Hint: this will be very similar to handleSave
+  * but we have to do something with the response data.
+  */
+  async function handleLoad() {
+    alert("Loading flashcards is not yet implemented.");
+  }
+
+
   return (
     <div className="flex flex-col items-center m-5">
       {/* TODO: Add a title for the page here.
         * Hint: we have a PageTitle component we used in the last section */}
       <PageTitle contents="Flashcards" />
+
+      {/* The buttons here are used to save and load flashcards.
+        * Saving is already implemented for you! */}
+      <div className="mb-4 flex flex-row gap-2">
+        <button
+          onClick={handleSave}
+          className="bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600 transition-colors mr-2"
+        >
+          Save Flashcards
+        </button>
+
+        <button
+          onClick={handleLoad}
+          className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors"
+        >
+          Load Flashcards
+        </button>
+      </div>
 
       {
         // If there are no cards, display a message saying so
@@ -74,7 +119,6 @@ export default function FlashcardPage() {
 
       {/* AddCardModal component to add new cards */}
       <AddCardModal onAddCard={handleAddCard} />
-
     </div>
   )
 }
