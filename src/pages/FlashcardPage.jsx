@@ -32,9 +32,10 @@ export default function FlashcardPage() {
     // Create a new array excluding the card at the specified index
     // Hint: you can use the `filter` method on arrays to do this, or you can use
     // a loop to copy all elements except the one at `index`.
+    const newCards = cards.filter((_, i) => i !== index);
 
     // Update the state with the new array
-
+    setCards(newCards);
   }
 
   function handleAddCard(newCard) {
@@ -42,15 +43,17 @@ export default function FlashcardPage() {
     // the existing one directly.
 
     // Create a new array that includes all existing cards plus the new card
+    const newCards = [...cards, newCard];
 
     // Update the state with the new array
-
+    setCards(newCards);
   }
 
   return (
     <div className="flex flex-col items-center m-5">
       {/* TODO: Add a title for the page here.
         * Hint: we have a PageTitle component we used in the last section */}
+      <PageTitle contents="Flashcards" />
 
       {
         // If there are no cards, display a message saying so

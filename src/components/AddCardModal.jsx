@@ -14,14 +14,16 @@ export default function AddCardModal({ onAddCard }) {
 
   const handleSubmit = (e) => {
     // Validate input: neither field can be empty. If either is empty, do nothing (return null).
-
+    if (!question || !answer) return null;
 
     // This function cannot manipulate the cards array directly (think about why!).
     // Instead, it needs to call the onAddCard function passed down from FlashcardPage and
     // provide the new card data as an argument. Call onAddCard with the new card data here:
+    return onAddCard({ question, answer });
 
     // Clear the input fields after submission
-
+    setQuestion("");
+    setAnswer("");
   };
 
   return (
@@ -48,7 +50,12 @@ export default function AddCardModal({ onAddCard }) {
         />
 
         {/* Add a submit button to the form. Remember to call handleSubmit on click! */}
-
+        <button
+          onClick={handleSubmit}
+          className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors"
+        >
+          Add Card
+        </button>
     </div>
   );
 }
