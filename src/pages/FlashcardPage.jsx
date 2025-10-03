@@ -17,7 +17,7 @@ import { useState } from "react";
 import PageTitle from "../components/PageTitle";
 import Flashcard from "../components/Flashcard";
 import AddCardModal from "../components/AddCardModal";
-import { saveFlashcards, fetchFlashcards } from "../utils/api";
+import { saveFlashcards, fetchFlashcards, loadFlashcards } from "../utils/api";
 
 export default function FlashcardPage() {
 
@@ -55,7 +55,7 @@ export default function FlashcardPage() {
   * It sends the current list of flashcards to the backend server to be saved.
   */
   function handleSave() {
-    saveFlashcards(cards) // 
+    saveFlashcards(cards)
       .then(response => {
         alert("Flashcards saved successfully!");
       })
@@ -68,11 +68,18 @@ export default function FlashcardPage() {
   /*
   * This function is called when the "Load Flashcards" button is clicked.
   * It fetches the list of flashcards from the backend server.
-  * TODO: Finish this function! Hint: this will be very similar to handleSave
-  * but we have to do something with the response data.
   */
   async function handleLoad() {
-    alert("Loading flashcards is not yet implemented.");
+    loadFlashcards()
+      .then(fetchedCards => {
+        // Update the state with the fetched cards
+        setCards(fetchedCards);
+        alert("Flashcards loaded successfully!");
+      })
+      .catch(error => {
+        alert("Failed to load flashcards.");
+        console.error("Error loading flashcards:", error);
+      });
   }
 
 

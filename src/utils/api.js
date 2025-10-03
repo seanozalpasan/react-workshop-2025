@@ -54,9 +54,11 @@ export async function saveFlashcards(flashcards) {
  * @todo Implement this function to fetch flashcards from the backend.
  * Currently, it returns a static array for demonstration purposes.
  * You will need to modify the backend to support fetching flashcards.
- * Hint: You can create a new GET endpoint in the backend similar to /sum.
+ * 
+ * Hint: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
+ * This doesn't match the tutorial exactly, but it's a good reference :)
  */
-export async function fetchFlashcards() {
+export async function loadFlashcards() {
   try { // TODO here
     // Make a GET request to the backend endpoint for fetching flashcards
 

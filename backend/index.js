@@ -63,6 +63,8 @@ app.get('/sum', (req, res) => {
   return res.send("Query Params are Valid");
 });
 
+// This endpoint should only be accessible via POST request
+// If a GET request is made, return an error message
 app.get('/save-cards', (_, res) => {
   res.send("/save-cards is only accessible via POST request!")
 })
@@ -105,12 +107,28 @@ app.post('/save-cards', (req, res) => {
  * This endpoint should load the most recently saved 
  * flashcards from your file system and return it as the response.
  */
-app.get("/recent-cards-txt", (req, res) => {
-  return res.send("Add returned text here")
+app.get("/get-cards", (req, res) => {
+  // Notice we don't really care about the request body here
+
+  try { // It's always good practice to wrap file I/O in try/catch so a user gets some feedback!
+    // Load the flashcards from a file in the backend folder! This will look similar to the save logic
+
+    // Deserialize the flashcards string into an array of objects. Hint: JSON.parse is your friend
+
+    return res.status(200).json({ flashcards: [] }); // TODO: Replace this with the loaded flashcards
+  }
+  catch(error) {
+    console.error(error);
+    return res.status(500).send("Internal Server Error");
+  }
 });
 
 /**
- * CHALLENGE: TBD
+ * CHALLENGE: Use the Trivia DB API (https://opentdb.com/api_config.php) to
+ * fetch a random trivia question and return it as the response.
+ * 
+ * You can use the `fetch` function to make HTTP requests, just like we do from
+ * the frontend.
  */
 
 // Start the server and listen at the specified port number
