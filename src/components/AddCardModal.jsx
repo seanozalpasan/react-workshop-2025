@@ -16,6 +16,7 @@ export default function AddCardModal({ onAddCard }) {
     // Validate input: neither field can be empty. If either is empty, do nothing (return null).
 
 
+
     // This function cannot manipulate the cards array directly (think about why!).
     // Instead, it needs to call the onAddCard function passed down from FlashcardPage and
     // provide the new card data as an argument. Call onAddCard with the new card data here:
@@ -49,6 +50,9 @@ export default function AddCardModal({ onAddCard }) {
 
         {/* Add a submit button to the form. Remember to call handleSubmit on click! */}
 
+        <button>
+          
+        </button>
     </div>
   );
 }

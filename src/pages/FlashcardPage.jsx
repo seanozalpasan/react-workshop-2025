@@ -7,12 +7,13 @@
  * you'll need to make changes in this file and in the components it uses. Good luck and have fun!
  * 
  * TODOs:
- * - Add a title to the page
- * - Implement card flipping (is that in this file?)
- * - Implement card deletion
- * - Implement adding new cards
+ * - Add a title to the page CHECK
+ * - Implement card flipping (is that in this file?) CHECK
+ * - Implement card deletion CHECK
+ * - Implement adding new cards 
  */
 
+//hi 
 import { useState } from "react";
 import PageTitle from "../components/PageTitle";
 import Flashcard from "../components/Flashcard";
@@ -34,6 +35,14 @@ export default function FlashcardPage() {
     // a loop to copy all elements except the one at `index`.
 
     // Update the state with the new array
+    var array = [];
+    for(let i = 0; i<cards.length; i++){
+      if(i !== index){
+        array[i] = cards[i];
+      }
+    }
+
+    setCards(array);
 
   }
 
@@ -44,13 +53,23 @@ export default function FlashcardPage() {
     // Create a new array that includes all existing cards plus the new card
 
     // Update the state with the new array
+    var array = [];
+    for(let i = 0; i<cards.length; i++){
+      array[i] = cards[i];
+    }
+    array.push(newCard);
+
+    setCards(array);
 
   }
 
   return (
     <div className="flex flex-col items-center m-5">
-      {/* TODO: Add a title for the page here.
+      
+      {/* TODO: Add a title for the page here. DONE
         * Hint: we have a PageTitle component we used in the last section */}
+      <PageTitle contents="Hello, JumboCode Developers!" />
+
 
       {
         // If there are no cards, display a message saying so
