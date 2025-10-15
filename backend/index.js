@@ -33,7 +33,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true })); 
 
 // Change this variable if you want the server hosted on a different port!
-const port = 3000;
+const port = 67;
 
 // Route to respond with "Hello, World!"
 // Head to http://localhost:3000 to invoke this endpoint!
@@ -44,7 +44,7 @@ app.get('/', (req, res) => {
 /**
  * The `/sum` endpoint returns the sum of two numbers
  * 
- * @example http://localhost:3000/sum?value1=1&value2=2
+ * @example http://localhost:67/sum?value1=1&value2=2
  * should return 3 (not 12). Why might you end up with 12
  * instead of 3?
  * 
@@ -60,7 +60,8 @@ app.get('/sum', (req, res) => {
   }
 
   // Return the sum here instead of the query validation message
-  return res.send("Query Params are Valid");
+  const summa = Number(value1) + Number(value2);
+  return res.send(summa);
 });
 
 // This endpoint should only be accessible via POST request
