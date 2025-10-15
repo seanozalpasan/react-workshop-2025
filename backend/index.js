@@ -64,6 +64,8 @@ app.get('/sum', (req, res) => {
   return res.send(summa);
 });
 
+//CONTINUE FROM HERE
+
 // This endpoint should only be accessible via POST request
 // If a GET request is made, return an error message
 app.get('/save-cards', (_, res) => {
