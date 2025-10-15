@@ -1,0 +1,5 @@
+request types -- most common one is get
+
+request parameters -- 
+
+response status code 400 client error - 500 client error -- success
